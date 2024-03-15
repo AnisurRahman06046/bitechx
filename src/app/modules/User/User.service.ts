@@ -5,4 +5,9 @@ const createUser = async (payload: IUser) => {
   const result = await User.create(payload);
   return result;
 };
-export const userServices = { createUser };
+
+const users = async () => {
+  const result = await User.find({});
+  return result;
+};
+export const userServices = { createUser ,users};
