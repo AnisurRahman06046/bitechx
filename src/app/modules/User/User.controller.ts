@@ -9,9 +9,19 @@ const createUser = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.CREATED,
     success: true,
-    message: 'Category is created',
+    message: 'User is created',
     data: result,
   });
 });
 
-export const userControllers = { createUser };
+// fetch all users
+const users = catchAsync(async (req, res) => {
+  const result = await userServices.users();
+  sendResponse(res, {
+    statusCode: httpStatus.CREATED,
+    success: true,
+    message: 'Users are fetched',
+    data: result,
+  });
+});
+export const userControllers = { createUser, users };

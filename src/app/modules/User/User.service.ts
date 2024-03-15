@@ -28,4 +28,5 @@ const deleteUser = async (id: string) => {
   const result = await User.findByIdAndDelete(id);
   return result;
 };
+
 export const userServices = { createUser, users, user, editUser, deleteUser };
