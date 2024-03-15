@@ -6,8 +6,20 @@ const createUser = async (payload: IUser) => {
   return result;
 };
 
+//  fetch all users
 const users = async () => {
   const result = await User.find({});
   return result;
 };
-export const userServices = { createUser ,users};
+
+// fetch single user
+const user = async (id: string) => {
+  const result = await User.findOne({ id });
+  return result;
+};
+// update a user
+const editUser = async (id: string, payload: Partial<IUser>) => {
+  const result = await User.findByIdAndUpdate(id, payload, { new: true });
+  return result;
+};
+export const userServices = { createUser, users, user ,editUser};
