@@ -7,14 +7,18 @@ const userSchema = new Schema<IUser>(
       type: String,
       required: [true, 'User name is required'],
     },
-    email: {
+    password: {
       type: String,
-      required: [true, 'Email is required'],
-      unique: true,
+      required: true,
     },
-    phoneNumber: {
-      type: String,
-    },
+    // email: {
+    //   type: String,
+    //   required: [true, 'Email is required'],
+    //   unique: true,
+    // },
+    // phoneNumber: {
+    //   type: String,
+    // },
   },
   { timestamps: true },
 );

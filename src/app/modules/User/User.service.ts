@@ -4,7 +4,7 @@ import { User } from './User.model';
 
 const createUser = async (payload: IUser) => {
   // check if user exists
-  const isUserExist = await User.findOne({ email: payload.email });
+  const isUserExist = await User.findOne({ name: payload.name });
   if (isUserExist) throw new Error('User already exist');
   const result = await User.create(payload);
   return result;
