@@ -24,4 +24,16 @@ const users = catchAsync(async (req, res) => {
     data: result,
   });
 });
-export const userControllers = { createUser, users };
+
+// fetch single user
+const user = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const result = await userServices.user(id);
+  sendResponse(res, {
+    statusCode: httpStatus.CREATED,
+    success: true,
+    message: 'User is fetched',
+    data: result,
+  });
+});
+export const userControllers = { createUser, users, user };
